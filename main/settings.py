@@ -124,6 +124,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'node_modules/flowbite/dist',
+    BASE_DIR / 'node_modules/vegas/dist',
 ]
 
 STATICFILES_FINDERS = (

@@ -1,30 +1,41 @@
-{% load compress %}
-{% load static %}
+{% load compress %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{meta.title}}</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django + Tailwind CSS + Flowbite</title>
+    <!-- SEO -->
+    <meta property="og:title" content="{{meta.title}}" />
+    <meta property="og:type" content="{{meta.type}}" />
+    <meta property="og:description" content="{{meta.description}}" />
+    <meta property="og:image" content="{{meta.image}}" />
+    <meta property="og:url" content="{{meta.url}}" />
 
+    <!-- CSS -->
     {% compress css %}
-    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    <link rel="stylesheet" href="{% static 'src/output.css' %}" />
     {% endcompress %}
 
-</head>
+    <!-- Header -->
+    {% block header %} {% endblock header %}
+  </head>
 
-<body class="bg-green-50">
-    <div class="container mx-auto mt-4">
-        {% block content %}
-        {% endblock content %}
-    </div>
+  <body>
+    <!-- Navbar -->
+    {% include 'components/navbar.html' %}
+    <!-- Content -->
+    {% block content %} {% endblock content %}
 
+    <!-- JS -->
     {% compress js %}
     <script src="{% static 'flowbite.min.js' %}"></script>
     {% endcompress %}
-</body>
 
+    <!-- Footer -->
+    {% block footer %} {% endblock footer %}
+  </body>
 </html>

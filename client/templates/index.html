@@ -1,5 +1,30 @@
 {% extends "_base.html" %}
+{% load compress %}
+{% load static %}
 
+<!-- Header -->
+{% block header %}
+<!-- CSS -->
+{% compress css %}
+<link rel="stylesheet" href="{% static 'vegas.min.css' %}" />
+{% endcompress %}
+
+{% endblock header %}
+
+
+<!-- Content -->
 {% block content %}
-  <h1 class="text-3xl text-green-800">Django + Tailwind CSS + Flowbite</h1>
+
+Test
+
 {% endblock content %}
+
+<!-- Footer -->
+{% block footer %}
+
+<!-- JS -->
+{% compress js %}
+<script src="{% static 'vegas.min.js' %}"></script>
+{% endcompress %}
+
+{% endblock footer %}
