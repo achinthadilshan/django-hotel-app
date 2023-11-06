@@ -1,0 +1,7 @@
+﻿client/__pycache__
+client/migrations
+main/__pycache__
+node_modules
+static/CACHE
+db.sqlite3
+venv
