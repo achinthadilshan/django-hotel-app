@@ -31,8 +31,21 @@
     {% block content %} {% endblock content %}
 
     <!-- JS -->
-    {% compress js %}
     <script src="{% static 'flowbite.min.js' %}"></script>
+
+    {% compress js %}
+    <script>
+      const navbar = document.querySelector('nav')
+
+      window.addEventListener('scroll', () => {
+        console.log(window.scrollY)
+        if (window.scrollY > 0) {
+          navbar.classList.add('bg-blue-500') // Change the background color when scrolling down
+        } else {
+          navbar.classList.remove('bg-blue-500') // Remove the background color when scrolling up
+        }
+      })
+    </script>
     {% endcompress %}
 
     <!-- Footer -->
